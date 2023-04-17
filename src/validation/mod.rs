@@ -36,3 +36,22 @@ pub fn validate_birthday(birthday: &str) -> Result<(), String> {
     }
     Err(String::from("Error, invalid birthday!"))
 }
+
+#[cfg(test)]
+mod tests {
+
+    use super::*;
+
+    #[test]
+    fn should_be_valid_name() {
+        assert_eq!(super::validate_name("Beent Nice"), Ok(()));
+    }
+
+    #[test]
+    fn should_be_invalid_name() {
+        assert_eq!(
+            validate_name("invalid_name"),
+            Err(String::from("Error, invalid name!"))
+        );
+    }
+}
