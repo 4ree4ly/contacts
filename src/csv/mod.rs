@@ -1,5 +1,6 @@
 use crate::domain::contact::Contact;
 
+use crate::configs;
 use csv;
 use std::fs::File;
 use std::fs::OpenOptions;
@@ -47,6 +48,6 @@ fn get_file() -> File {
         .create(true)
         .truncate(false)
         .append(true)
-        .open("v2/contacts.csv")
+        .open(configs::get_config().contacts_path)
         .unwrap()
 }
